@@ -1,0 +1,56 @@
+extends layout
+
+block content
+  script(src="/javascripts/client.js")
+  div#heading
+    div#titles
+      h2= "Vine Web Coding Challenge"
+      h1= "Github Issue Viewer"
+    div#logo
+      img(height="60" alt="Github" src="https://camo.githubusercontent.com/fc74cf4a092fe0d9d193bdc46b0f9821883fa3cd/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f37323931392f3338313630382f30373464306230362d613565332d313165322d386237662d3966303965623264646661652e6a7067")
+      img(width="60" height="60" alt="Vine" src="http://38.media.tumblr.com/avatar_ba58bb80b8eb_128.png")
+
+  // to see complete header info
+  // p #{JSON.stringify(header_info)}
+
+  - function requestSubstring(strBody) {
+  -   var bodyLen = strBody.length;
+  -   var reqLength = 140;
+  -   if (bodyLen <= reqLength) {
+  -     return strBody;}
+  -   else {
+  -   var strFound = false;
+  -   var counter = 1;
+  -   while (!strFound) {
+  -     if (strBody[reqLength - counter] == ' ') {
+  -       return strBody.substr(0, [reqLength - counter])+'...';}
+  -     else if (strBody[reqLength + counter] == ' ') {
+  -       return strBody.substr(0, [reqLength + counter])+'...';}
+  -     counter += 1;}
+  -  return strBody.substring(0, reqLength)+'...';}}
+
+
+  div#nav
+    for link in header_info["link"].split(',')
+      - var pg = link.split(';')[0].split('=')[1].replace('>','');
+      - var name = link.split(';')[1].split('=')[1].replace(/"/g,'');
+      //div #{link}
+      button(id= pg class=name onclick='requestPage(this)') #{name}
+
+
+  div#issuelist
+    for issue in show_issues
+      div(class="wrapper well" onclick='requestIssue(#{issue["number"]})')
+        div(class='avatar')
+          p #{issue["user"]["login"]}
+          img(id="avatar" src= issue["user"]["avatar_url"])
+        div(class='info')
+          h3 # #{issue["number"]}
+          h3 #{issue["title"]}
+
+          p #{requestSubstring(issue["body"])}
+          //p #{issue["body"].substr(0,140)}
+          //end on clean word or line
+          //p labels #{JSON.stringify(issue["labels"])}
+          for label in issue['labels']
+            span(id="label" style='color:##{label["color"]}') #{label['name']}

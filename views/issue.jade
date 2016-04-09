@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    div#issuedata
+        div(class="wrapper well")
+            div(class='issue' id=issue_data["number"])
+                for label in issue_data['labels']
+                    span(id="label" style='color:##{label["color"]}') #{label['name']}
+                div(class='avatar')
+                    p #{issue_data["user"]}
+                    img(id="avatar" src= issue_data["avatar"])
+                div(class='info')
+                    h3 # #{issue_data["number"]}
+                    span#state #{issue_data["state"]}
+                    h3 #{issue_data["title"]}
+
+                div(class="body")
+                    #{issue_data["body"]}
+
+                div(class="comments")
+                    h3 Comments
+                    for comment in issue_data["comments"]
+
+                        a(href=comment["html_url"]) #{comment["user"]["login"]}
+                        p #{comment["body"]}

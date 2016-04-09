@@ -1,0 +1,101 @@
+body {
+  padding: 40px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+#heading{
+  top: 0px;
+  20px 10px 30px 10px;
+  left: 5px;
+  background: white;
+  position: fixed !important;
+  width: 100% !important;
+}
+
+
+h2{
+  color: #00bf8f;
+}
+a {
+  color: #00B7FF;
+}
+
+.wrapper{
+  padding: 10px;
+  max-width: 80%;
+  margin:6%;
+  word-wrap: break-word;
+  min-height: 120px;
+}
+.wrapper:hover {
+  background: azure;
+}
+
+.avatar {
+  float: right;
+}
+/* for image id=avatar */
+#avatar{
+  height: 80px;
+}
+
+#titles {
+  margin-left:20%;
+}
+
+#logo{
+  float: right;
+
+  width: 20%;
+  margin-top: -7%;
+  margin-right: 20%;
+}
+}
+
+.wrapper .avatar{
+  width: 12%;
+  float: right;
+}
+
+#state{
+  border: 1px dashed #000000;
+  margin: 5px;
+  padding: 10px;
+  float: right;
+  top: 10%;
+  right: 15%;
+  position: absolute;
+}
+#label {
+  border: 1px dashed #00bf8f;
+  margin: 5px;
+  padding: 2px;
+
+}
+
+.first{
+  position: fixed;
+  top: 10%;
+  left: 5%;
+}
+.prev{
+  position:fixed;
+  top: 10%;
+  left:10%;
+
+}
+.next{
+  position:fixed;
+  top: 10%;
+  left:85%;
+}
+.last{
+  position:fixed;
+  top: 10%;
+  left:90%;
+}
+
+.issue .body {
+  max-width: 80%;
+  margin-left: 20px;
+}
