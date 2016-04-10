@@ -19,5 +19,9 @@
     "bootstrap": "^3.3.6",
     "nodemon": "^1.9.1",
     "octonode": "^0.7.5"
+  },
+  "author": "ritika-shandilya",
+  "engines": {
+    "node": "4.2.3"
   }
 }
