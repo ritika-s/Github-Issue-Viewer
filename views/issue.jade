@@ -3,6 +3,7 @@ extends layout
 block content
     div#issuedata
         div(class="wrapper well")
+            button(onclick="window.history.back()") Go Back
             div(class='issue' id=issue_data["number"])
                 for label in issue_data['labels']
                     span(id="label" style='color:##{label["color"]}') #{label['name']}
@@ -11,8 +12,10 @@ block content
                     img(id="avatar" src= issue_data["avatar"])
                 div(class='info')
                     h3 # #{issue_data["number"]}
-                    span#state #{issue_data["state"]}
                     h3 #{issue_data["title"]}
+                    span(id=issue_data["state"])
+                        h3 #{issue_data["state"]}
+
 
                 div(class="body")
                     #{issue_data["body"]}

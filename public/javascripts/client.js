@@ -1,9 +1,3 @@
-
-function requestPage(btn) {
-    var pgNum = btn.id;
-    window.location = '/?pageNumber='+pgNum;
-}
-
 function requestSubstring(strBody) {
     var bodyLen = strBody.length;
     var reqLength = 140;

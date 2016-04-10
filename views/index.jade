@@ -35,22 +35,27 @@ block content
       - var pg = link.split(';')[0].split('=')[1].replace('>','');
       - var name = link.split(';')[1].split('=')[1].replace(/"/g,'');
       //div #{link}
-      button(id= pg class=name onclick='requestPage(this)') #{name}
+      form(role="form" method="POST" action="/")
+        input(type='hidden' name='pageNumber' value=pg)
+        button(class=name ) #{name}
 
 
   div#issuelist
     for issue in show_issues
-      div(class="wrapper well" onclick='requestIssue(#{issue["number"]})')
-        div(class='avatar')
-          p #{issue["user"]["login"]}
-          img(id="avatar" src= issue["user"]["avatar_url"])
-        div(class='info')
-          h3 # #{issue["number"]}
-          h3 #{issue["title"]}
+      form(id=issue["number"] action='/issue' method='POST')
+        input(type='hidden' name='issueNumber' value=issue["number"])
+        div(class="wrapper well" onclick='document.getElementById('+issue["number"]+').submit()')
+          div(class='avatar')
+            h4 #{issue["user"]["login"]}
+            img(id="avatar" src= issue["user"]["avatar_url"])
+          div(class='info')
+            h3 # #{issue["number"]}
+            h3 #{issue["title"]}
 
-          p #{requestSubstring(issue["body"])}
-          //p #{issue["body"].substr(0,140)}
-          //end on clean word or line
-          //p labels #{JSON.stringify(issue["labels"])}
-          for label in issue['labels']
-            span(id="label" style='color:##{label["color"]}') #{label['name']}
+
+            p #{requestSubstring(issue["body"])}
+            //p #{issue["body"].substr(0,140)}
+            //end on clean word or line
+            //p labels #{JSON.stringify(issue["labels"])}
+            for label in issue['labels']
+              span(id="label" style='color:##{label["color"]}') #{label['name']}

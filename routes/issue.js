@@ -5,8 +5,9 @@ var client = github.client();
 
 /* Issue Detail Page. */
 
-router.get('/', function(req, res, next) {
-  issue = req.param('issueNumber');
+router.post('/', function(req, res, next) {
+  issue = req.body.issueNumber;
+  console.log("getting issue", issue);
   if (issue == null) {issue = 1;}
   // console.log("calling ghissue.info function", issue);
   var ghissue = client.issue('npm/npm', issue);

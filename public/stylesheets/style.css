@@ -12,7 +12,6 @@ body {
   width: 100% !important;
 }
 
-
 h2{
   color: #00bf8f;
 }
@@ -57,14 +56,27 @@ a {
   float: right;
 }
 
-#state{
-  border: 1px dashed #000000;
-  margin: 5px;
-  padding: 10px;
+#open{
+  line-height: 8px;
+  padding-left: 7px;
+  padding-right: 7px;
   float: right;
   top: 10%;
   right: 15%;
   position: absolute;
+  background-color: rgb(46, 179, 93);
+  color: white;
+}
+#closed{
+  line-height: 8px;
+  padding-left: 7px;
+  padding-right: 7px;
+  float: right;
+  top: 10%;
+  right: 15%;
+  position: absolute;
+  background-color: rgb(179, 46, 65);
+  color: white;
 }
 #label {
   border: 1px dashed #00bf8f;
@@ -98,4 +110,22 @@ a {
 .issue .body {
   max-width: 80%;
   margin-left: 20px;
+}
+button{
+  top: 10%;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  position: absolute;
+}
+button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
