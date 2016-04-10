@@ -1,6 +1,8 @@
 # Github-Issue-Viewer
 This is Github Issue Viewer, a nodejs + express + jade app. It picks up Issue data from Github through octonode npm module.
 
+Demo available [here](https://mighty-dusk-86837.herokuapp.com/).
+
 Design -
   * The first page is the 'Default Page'.
   * You'll see a sticky header to the top which encloses - 
